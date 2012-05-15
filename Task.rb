@@ -36,7 +36,7 @@ class Task
   end
 
   def info
-    #@task[:status] = @task[:end_time] > Time.now ? 'active' : 'inactive'
+    @task[:status] = @task[:end_time] > Time.now ? 'active' : 'inactive'
     @task.each { |i| puts i } # переписати з використанням yield
   end
 

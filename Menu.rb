@@ -34,13 +34,7 @@ class Menu
   def info
     puts 'Number of task:'
     number = gets.chomp.to_i - 1
-    if number > 0
-      puts @tasks[number].info
-    else
-      puts @tasks
-    end
-
-    #puts number > 0 ? @tasks[number].info : @tasks
+    puts number > 0 ? @tasks[number][:title] : @tasks
   end
 
   def start
