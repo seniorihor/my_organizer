@@ -22,23 +22,36 @@ class Menu
 
     puts 'priority:'
     task.priority = gets.chomp.to_i
+
+    puts 'create subtasks?'
+    answer = gets.chomp
+    case answer
+    when 'yes'
+      task.new_subtask
+    end
+
     @tasks.push(task)
+    puts 'new task complete!'
   end
 
   def delete
-    puts 'Number for delete:'
+    puts 'number for delete:'
     number = gets.chomp.to_i - 1
     @tasks.delete_at(number)
   end
 
   def info
-    puts 'Number of task:'
+    puts 'number of task:'
     number = gets.chomp.to_i - 1
-    puts number >= 0 ? @tasks[number].info : @tasks
+    if number < @tasks.size
+      puts number >= 0 ? @tasks[number].info : @tasks
+    else
+      puts 'bad number!'
+    end
   end
 
   def start
-    puts "Available commands:\nnew\ndelete\ninfo\nexit"
+    puts "available commands:\nnew\ndelete\ninfo\nexit"
     until @c == 'exit'
       @c = gets.chomp
       case @c
