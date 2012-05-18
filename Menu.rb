@@ -34,10 +34,11 @@ class Menu
   def info
     puts 'Number of task:'
     number = gets.chomp.to_i - 1
-    puts number > 0 ? @tasks[number][:title] : @tasks
+    puts number >= 0 ? @tasks[number].info : @tasks
   end
 
   def start
+    puts "Available commands:\nnew\ndelete\ninfo\nexit"
     until @c == 'exit'
       @c = gets.chomp
       case @c
