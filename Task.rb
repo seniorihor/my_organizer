@@ -2,11 +2,14 @@
 # -*- coding: utf-8 -*-
 # Author: seniorihor
 
+require_relative './Subtask.rb'
+
 class Task
 
   attr_reader :task
 
   def initialize
+    @number = 0
     @task = Hash.new
     @task[:start_time] = Time.now
   end
@@ -33,6 +36,11 @@ class Task
 
   def priority=(number)
     @task[:priority] = number
+  end
+
+  def new_subtask
+    puts 'this feature is not available yet...'
+    #@task["subtask_#{@number += 1}".to_sym] = Hash.new
   end
 
   def info
